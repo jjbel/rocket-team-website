@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Member Pop-up</title>
+  <style>
+    .member-container {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="team-member"
+    onclick="showPopup('Caleb Farrelly', 'img-caleb', 'Major: Mechanical Engineering<br>Graduation Year: 2025<br>College: Engineering')">
+    <img src="images/istockphoto-1413766112-612x612.jpg" alt="Caleb Farrelly"> <!-- Replace with actual image -->
+    <h3>Caleb Farrelly</h3>
+    <p>Team Lead</p>
+  </div>
+
+  <div class="member-container">
+    <img src="member-image.jpg" alt="Member Photo">
+    <h3>Caleb Farrelly</h3>
+    <p>Major: Mechanical Engineering</p>
+    <p>Graduation Year: 2025</p>
+    <p>College: Engineering</p>
+    <a href="#">LinkedIn</a>
+  </div>
+
+  <script>
+    // Get the member container element
+    const memberContainer = document.querySelector('.member-container');
+
+    // Function to show the pop-up
+    function showMemberPopup() {
+      memberContainer.style.display = 'block';
+    }
+
+    // Function to hide the pop-up
+    function hideMemberPopup() {
+      memberContainer.style.display = 'none';
+    }
+
+    // Trigger the pop-up on a click event (replace with your desired trigger)
+    document.getElementById('member-image').addEventListener('click', showMemberPopup);
+
+    // Close the pop-up when clicking outside the container
+    window.addEventListener('click', (event) => {
+      if (event.target === memberContainer) {
+        hideMemberPopup();
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    
+  }
+  
+  header {
+    background-color: #002244;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+   
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+.image-container  {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+
+}
+
+.image-container img{
+position: absolute;
+top: 50%;
+left: 50%;
+width: 100vw;
+height: 100vh;
+transform: translate(-50%, -50%);
+object-fit: cover;
+}
+
+  
+  /* Subsystem Section */
+  .subsystem {
+    margin: 50px 0;
+    text-align: center;
+  }
+  
+  .subsystem h2 {
+    font-size: 2rem;
+    color: #002244;
+    margin-bottom: 20px;
+  }
+
+ /* Lead Member Styling */
+.lead-member {
+    position: relative;
+    display: inline-block;
+    width: 300px; /* Slightly larger for prominence */
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px auto; /* Centers the lead member */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow for prominence */
+  }
+  
+  .lead-member img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image scales well */
+  }
+  
+  .lead-member .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Slightly darker overlay for lead member */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 1.2rem; /* Larger font size for lead details */
+  }
+  
+  .lead-member:hover .overlay {
+    opacity: 1;
+  }
+  
+
+  
+  /* Carousel */
+  .carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 20px;
+    scroll-behavior: smooth;
+  }
+  
+  .carousel::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+  }
+  
+  /* Team Member Card */
+  .team-member {
+    position: relative;
+    flex: 0 0 250px;
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+  }
+  
+  .team-member img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Overlay for hover effect */
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .team-member:hover .overlay {
+    opacity: 1;
+  }
+  
+  /* Slide-in animation */
+  .slide-in.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .carousel {
+      flex-wrap: nowrap;
+      gap: 10px;
+    }
+  
+    .team-member {
+      flex: 0 0 200px;
+      height: 250px;
+    }
+  }
+  
