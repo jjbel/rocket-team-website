@@ -1,859 +1,1025 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IITB-ROCKET Team</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-        }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        color: #000;
+      }
 
+      .logo {
+        width: 210px;
+        height: auto;
+      }
 
-        .logo {
-            width: 210px;
-            height: auto;
+      .logo img {
+        display: block;
+        width: 75%;
+        height: auto;
+      }
 
-        }
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
 
-        .logo img {
-            display: block;
-            width: 75%;
-            height: auto;
-        }
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+      }
 
+      .nav-links a:hover {
+        color: gray;
+      }
 
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 2em;
+        background-color: #111;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
 
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 16px;
-        }
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 1em;
+        font-weight: bold;
+      }
 
-        .nav-links a:hover {
-            color: gray;
-        }
+      .navbar .buttons {
+        display: flex;
+        gap: 1em;
+      }
 
-        .actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+      .navbar .buttons a {
+        padding: 0.5em 1em;
+        border-radius: 5px;
+        margin-right: 5px;
+      }
 
+      .navbar .buttons a:last-child {
+        margin-right: 0;
+      }
 
+      .navbar .buttons .social a {
+        display: flex;
+        margin-right: 0%;
+      }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1em 2em;
-            background-color: #111;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+      .navbar .buttons .btn {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: background-color 0.3s, color 0.3s;
+      }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1em;
-            font-weight: bold;
-        }
+      .navbar .buttons .btn-give {
+        background-color: #f4f4f4;
+        color: #000;
+      }
 
-        .navbar .buttons {
-            display: flex;
-            gap: 1em;
-        }
+      .navbar .buttons .btn-give:hover {
+        background-color: #ddd;
+      }
 
-        .navbar .buttons a {
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            margin-right: 5px;
-        }
+      .navbar .buttons .social {
+        display: flex;
+      }
 
-        .navbar .buttons a:last-child {
-            margin-right: 0;
-        }
+      .header {
+        text-align: center;
+        padding: 2em 1em;
+        background-image: url("stars-bg.jpg");
+        /* Replace with actual background image */
+        background-size: cover;
+        background-position: center;
+      }
 
-        .navbar .buttons .social a {
-            display: flex;
-            margin-right: 0%;
-        }
+      .header h1 {
+        font-size: 2.5em;
+        margin: 0;
+      }
 
-        .navbar .buttons .btn {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: background-color 0.3s, color 0.3s;
-        }
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2em 1em;
+        gap: 2em;
+        max-width: 1200px;
+        margin: auto;
+      }
 
-        .navbar .buttons .btn-give {
-            background-color: #f4f4f4;
-            color: #000;
-        }
+      .content img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
 
-        .navbar .buttons .btn-give:hover {
-            background-color: #ddd;
-        }
+      .content .text {
+        max-width: 600px;
+      }
 
-        .navbar .buttons .social {
-            display: flex;
-        }
+      .content .img {
+        max-width: 40%;
+        height: auto;
+        border-radius: 8px;
+        margin-right: 20px;
+      }
 
+      .content h2 {
+        font-size: 2em;
+        color: rgb(0, 51, 102);
+      }
 
+      .content-1 {
+        max-width: 1200px;
+        margin: auto;
+        padding: 2px;
+      }
 
-        .header {
-            text-align: center;
-            padding: 2em 1em;
-            background-image: url('stars-bg.jpg');
-            /* Replace with actual background image */
-            background-size: cover;
-            background-position: center;
-        }
+      .team-section {
+        text-align: center;
+        margin: 30px auto;
+        padding: 0 20px;
+      }
 
-        .header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
+      .team-section h1 {
+        color: #ff5252;
+        margin-bottom: 20px;
+      }
 
-        .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 2em 1em;
-            gap: 2em;
-            max-width: 1200px;
-            margin: auto;
-        }
+      .team-section h2 {
+        margin-top: 5px;
+      }
 
-        .content img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 5px;
+        justify-items: center;
+      }
 
-        .content .text {
-            max-width: 600px;
-        }
+      .team-member {
+        text-align: center;
+        cursor: pointer;
+      }
 
-        .content .img {
-            max-width: 40%;
-            height: auto;
-            border-radius: 8px;
-            margin-right: 20px;
-        }
+      .team-member img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
 
-        .content h2 {
-            font-size: 2em;
-            color: rgb(0, 51, 102);
-        }
+      .team-member h3 {
+        margin: 0.5em 0 0.2em;
+        font-size: 1.2em;
+      }
 
+      .team-member p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #ccc;
+      }
 
-        .content-1 {
-            max-width: 1200px;
-            margin: auto;
-            padding: 2px;
-        }
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+      }
 
-        .team-section {
-            text-align: center;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+      .popup-content {
+        background-color: #333;
+        padding: 2em;
+        border-radius: 8px;
+        max-width: 500px;
+        color: white;
+        text-align: left;
+      }
 
-        .team-section h1 {
-            color: #ff5252;
-            margin-bottom: 20px;
-        }
+      .popup-content img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1em;
+      }
 
-        .team-section h2 {
-            margin-top: 5px;
-        }
+      .popup-content h3 {
+        margin: 0;
+      }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 5px;
-            justify-items: center;
+      .popup-content p {
+        margin: 0.5em 0;
+      }
 
+      .popup-details a {
+        color: #0e76a8;
+        text-decoration: none;
+        font-size: 16px;
+        margin-top: 10px;
+        display: inline-block;
+        transition: color 0.3s ease;
+      }
 
-        }
+      .popup-details a:hover {
+        color: #0056b3;
+      }
 
+      .popup-linkedin {
+        color: #0e76a8;
+        text-decoration: none;
+        font-size: 16px;
+        margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        transition: color 0.3s ease;
+      }
 
+      .popup-linkedin:hover {
+        color: #0056b3;
+      }
 
+      .popup-linkedin img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
 
-        .team-member {
-            text-align: center;
-            cursor: pointer;
-        }
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 1.5em;
+        cursor: pointer;
+      }
 
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 5px;
+      /* General Footer Styling */
+      .footer {
+        background-color: #000;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
 
-        }
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        flex-wrap: wrap;
+      }
 
-        .team-member h3 {
-            margin: 0.5em 0 0.2em;
-            font-size: 1.2em;
-        }
+      /* Logo Section */
+      .footer-logo .logo {
+        width: 200px;
+        /* Adjust size */
+        height: auto;
+      }
 
-        .team-member p {
-            margin: 0;
-            font-size: 0.9em;
-            color: #ccc;
-        }
+      /* Sitemap Section */
+      .footer-sitemap {
+        text-align: left;
+      }
 
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-        }
+      .footer-sitemap h3 {
+        margin-bottom: 10px;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
 
-        .popup-content {
-            background-color: #333;
-            padding: 2em;
-            border-radius: 8px;
-            max-width: 500px;
-            color: white;
-            text-align: left;
-        }
+      .footer-sitemap ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
 
-        .popup-content img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1em;
-        }
+      .footer-sitemap ul li {
+        margin: 5px 0;
+      }
 
-        .popup-content h3 {
-            margin: 0;
-        }
+      .footer-sitemap ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+      }
 
-        .popup-content p {
-            margin: 0.5em 0;
-        }
+      .footer-sitemap ul li a:hover {
+        color: #e4405f;
+        /* Instagram color for hover effect */
+      }
 
-        .popup-details a {
+      /* Social Media Section */
+      .footer-social {
+        text-align: left;
+      }
+
+      .footer-social h3 {
+        margin-bottom: 10px;
+        font-size: 16px;
+        text-transform: uppercase;
+        transform: translateX(-40%);
+      }
+
+      .footer-social .social-icon {
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+      }
+
+      .footer-social .social-icon:hover {
+        color: #e4405f;
+      }
+
+      /* Bottom Section */
+      .footer-bottom {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #aaa;
+      }
+    </style>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="images/rtlogo1.png" alt="logo" />
+      </div>
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#members">Members</a>
+        <a href="#sponsors">Sponsors</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="#rockets">Rockets</a>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-give">REACH OUT TO US</button>
+      </div>
+      <div class="buttons">
+        <div class="social">
+          <a
+            href="https://www.instagram.com/iitb.rocket.team/?hl=en"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        <div class="social">
+          <a
+            href="https://in.linkedin.com/company/iitbrocketteam"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <div class="social">
+          <a
+            href="mailto:iitbrocketteam@gmail.com"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fas fa-envelope icon"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <header class="header">
+      <h1>Our Team</h1>
+    </header>
+    <section class="content">
+      <div class="text">
+        <h2>IITB- ROCKET TEAM</h2>
+        <p>
+          Our team is a group of 30+ members, including undergraduates, dual
+          degree and PhD students, united by a shared passion for advancing
+          rocketry and space sciences in India. We are dedicated to nurture a
+          robust STEM community and are guided by experienced faculty from ISRO
+          and IIT Bombay, along with a TRA Level-3 certified international
+          mentor who will be our Flyer of Record for the competition.
+        </p>
+        <p>Click on any of our members below to learn more about them!</p>
+      </div>
+      <div class="img">
+        <img
+          src="images/Screenshot 2024-12-22 165733.png"
+          alt="IITB ROCKET TEAM"
+        />
+        <!-- Replace with the actual image -->
+      </div>
+    </section>
+    <section class="content-1">
+      <!-- Team Leads Section -->
+      <div class="team-section" id="team-leads">
+        <h2>Team Leads</h2>
+        <div class="team-grid">
+          <div
+            class="team-member"
+            onclick="showPopup('Anish Dahibaokar', 'imgSrc', 'Major: Mechanical Engineering<br>Graduation Year: 2025')"
+          >
+            <img src="../images/anishD.png" alt="Anish Dahibaokar" />
+            <!-- Replace with actual image -->
+            <h3>Anish Dahibaokar</h3>
+            <p>Team Lead</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Sayan Vishwakarma', 'images/istockphoto-1413766112-612x612.jpg', 'Major:Aerospace Engineering<br>Graduation Year: 2025')"
+          >
+            <img src="../images/SayanV.JPG" alt="Sayan Vishwakarma" />
+            <!-- Replace with actual image -->
+            <h3>Sayan Vishwakarma</h3>
+            <p>Team Lead</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-1">
+      <!-- Propulsion Section -->
+      <div class="team-section" id="Propulsion">
+        <h2>Propulsion</h2>
+        <div class="team-grid">
+          <div
+            class="team-member"
+            onclick="showPopup('Venu Arravinth R ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Mechanical Engineering<br>Graduation Year: 2027')"
+          >
+            <img src="../images/VenuR.jpg" alt="Venu Arravinth R " />
+            <!-- Replace with actual image -->
+            <h3>Venu Arravinth R</h3>
+            <p>Subsytem Lead</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Aditya Parsekar ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Chemical Engineering<br>Graduation Year: 2026')"
+          >
+            <img src="../images/AdityaP.jpg" alt="Aditya Parsekar " />
+            <!-- Replace with actual image -->
+            <h3>Aditya Parsekar</h3>
+            <p>Lead</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Soham Sahasrabuddhe ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Engineering Physics<br>Graduation Year: 2027')"
+          >
+            <img src="../images/SohamSahas.jpg" alt="Soham Sahasrabuddhe " />
+            <!-- Replace with actual image -->
+            <h3>Soham Sahasrabuddhe</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Arin Pendharkar ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Metallurgy and material Science<br>Graduation Year: 2027')"
+          >
+            <img src="../images/ArinP.jpg" alt="Arin Pendharkar " />
+            <!-- Replace with actual image -->
+            <h3>Arin Pendharkar</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Om Nunase ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2027')"
+          >
+            <img
+              src="images/istockphoto-1413766112-612x612.jpg"
+              alt="Om Nunase "
+            />
+            <!-- Replace with actual image -->
+            <h3>Om Nunase</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Anshit Singh', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Energy Science and Engineering<br>Graduation Year: 2028')"
+          >
+            <img src="../images/Anshit Singh Image.jpg" alt="Anshit Singh" />
+            <!-- Replace with actual image -->
+            <h3>Anshit Singh</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Shrestha Khatri', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2028')"
+          >
+            <img src="../images/Shreestha.jpg" alt="Shrestha Khatri" />
+            <!-- Replace with actual image -->
+            <h3>Shrestha Khatri</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Siddhant Patil', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Mechanical Engineering<br>Graduation Year: 2028')"
+          >
+            <img src="../images/SiddhantP.jpg" alt="Siddhant Patil" />
+            <!-- Replace with actual image -->
+            <h3>Siddhant Patil</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Aryan Shah', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Mechanical Engineering<br>Graduation Year: 2028')"
+          >
+            <img src="../images/AryanShah.jpg" alt="Aryan Shah" />
+            <!-- Replace with actual image -->
+            <h3>Aryan Shah</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Deepika Kale', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2028')"
+          >
+            <img
+              src="../images/istockphoto-1413766112-612x612.jpg"
+              alt="Deepika Kale"
+            />
+            <!-- Replace with actual image -->
+            <h3>Deepika Kale</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Dev Shrivastava ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2028')"
+          >
+            <img
+              src="../images/istockphoto-1413766112-612x612.jpg"
+              alt="Dev Shrivastava "
+            />
+            <!-- Replace with actual image -->
+            <h3>Dev Shrivastava</h3>
+            <p>Junior Engineer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-1">
+      <!-- Airframe Section -->
+      <div class="team-section" id="Airframe">
+        <h2>Airframe</h2>
+        <div class="team-grid">
+          <div
+            class="team-member"
+            onclick="showPopup('Sarvesh Patil ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Mechanical Engineering<br>Graduation Year: 2026')"
+          >
+            <img src="../images/Sarvesh Patil.jpg" alt="Sarvesh Patil " />
+            <!-- Replace with actual image -->
+            <h3>Sarvesh Patil</h3>
+            <p>Subsytem Lead</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Hitaishi Modi ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2025')"
+          >
+            <img src="../images/Hitashi Modi_cropped.jpg" alt="Hitaishi Modi" />
+            <!-- Replace with actual image -->
+            <h3>Hitaishi Modi</h3>
+            <p>Senior Member</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Kartik Daga ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2027')"
+          >
+            <img src="../images/KartikD.jpeg" alt="Kartik Daga " />
+            <!-- Replace with actual image -->
+            <h3>Kartik Daga</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Krishang Singh ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2027')"
+          >
+            <img src="../images/KrishangS.jpg" alt="Krishang Singh " />
+            <!-- Replace with actual image -->
+            <h3>Krishang Singh</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Vrushabh Patil ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2027')"
+          >
+            <img src="../images/Vrushabh.png" alt="Vrushabh Patil " />
+            <!-- Replace with actual image -->
+            <h3>Vrushabh Patil</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Aaryan Barupal ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2028')"
+          >
+            <img
+              src="../images/istockphoto-1413766112-612x612.jpg"
+              alt="Aaryan Barupal "
+            />
+            <!-- Replace with actual image -->
+            <h3>Aaryan Barupal</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Ram Jyothy ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Civil Engineering<br>Graduation Year: 2028')"
+          >
+            <img src="../images/RamJyothy.jpg" alt="Ram Jyothy " />
+            <!-- Replace with actual image -->
+            <h3>Ram Jyothy</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Abhinav Badegaonkar', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Chemical Engineering<br>Graduation Year: 2028')"
+          >
+            <img src="../images/AbhinavB.jpg" alt="Abhinav Badegaonkar" />
+            <!-- Replace with actual image -->
+            <h3>Abhinav Badegaonkar</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Aarav Malde', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2029')"
+          >
+            <img src="../images/Aarav.jpg" alt="Aarav Malde" />
+            <!-- Replace with actual image -->
+            <h3>Aarav Malde</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Upajna Kansara', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2028')"
+          >
+            <img
+              src="../images/istockphoto-1413766112-612x612.jpg"
+              alt="Upajna Kansara"
+            />
+            <!-- Replace with actual image -->
+            <h3>Upajna Kansara</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Adithya Ravi', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Engineering Physics<br>Graduation Year: 2028')"
+          >
+            <img src="../images/AdithyaR.jpg" alt="Adithya Ravi" />
+            <!-- Replace with actual image -->
+            <h3>Adithya Ravi</h3>
+            <p>Junior Engineer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-1">
+      <!-- Avionics Section -->
+      <div class="team-section" id="Avionics">
+        <h2>Avionics</h2>
+        <div class="team-grid">
+          <div
+            class="team-member"
+            onclick="showPopup('Stuti Singla ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2026')"
+          >
+            <img src="../images/Stuti.PNG" alt="Stuti Singla " />
+            <!-- Replace with actual image -->
+            <h3>Stuti Singla</h3>
+            <p>Subsytem Lead</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Medhavin Chabra ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2026')"
+          >
+            <img src="../images/Medhavin.jpeg" alt="Medhavin Chabra" />
+            <!-- Replace with actual image -->
+            <h3>Medhavin Chabra</h3>
+            <p>Subsytem Lead</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Arnav Dhamankar ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Civil Engineering<br>Graduation Year: 2026')"
+          >
+            <img src="../images/ArnavD.jpg" alt="Arnav Dhamankar " />
+            <!-- Replace with actual image -->
+            <h3>Arnav Dhamankar</h3>
+            <p>Subsytem Lead</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Akshay Gaikwad ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Computer Science Engineering<br>Graduation Year: 2027')"
+          >
+            <img src="../images/Akshay.jpg" alt="Akshay Gaikwad " />
+            <!-- Replace with actual image -->
+            <h3>Akshay Gaikwad</h3>
+            <p>Senior Member</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Nikhil Khandelwal ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Metallurgy and Material Science<br>Graduation Year: 2027')"
+          >
+            <img src="../images/NikhilK.jpg" alt="Nikhil Khandelwal " />
+            <!-- Replace with actual image -->
+            <h3>Nikhil Khandelwal</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Hemang Dave ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2028')"
+          >
+            <img src="../images/HemangD.jpg" alt="Hemang Dave " />
+            <!-- Replace with actual image -->
+            <h3>Hemang Dave</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Harsh Mehta ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Metallurgy and Material Science <br>Graduation Year: 2027')"
+          >
+            <img src="../images/HarshM.png" alt="Harsh Mehta " />
+            <!-- Replace with actual image -->
+            <h3>Harsh Mehta</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Sameer Gupta', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Metallurgy and Material Science<br>Graduation Year: 2027')"
+          >
+            <img src="../images/sameer gupta photo.jpg" alt="Sameer Gupta" />
+            <!-- Replace with actual image -->
+            <h3>Sameer Gupta</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Ayusha Hongekar', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Industrial Engineering and Operations Research<br>Graduation Year: 2028')"
+          >
+            <img
+              src="../images/istockphoto-1413766112-612x612.jpg"
+              alt="Ayusha Hongekar"
+            />
+            <!-- Replace with actual image -->
+            <h3>Ayusha Hongekar</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Jai Bellare', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2028')"
+          >
+            <img
+              src="../images/istockphoto-1413766112-612x612.jpg"
+              alt="Jai Bellare "
+            />
+            <!-- Replace with actual image -->
+            <h3>Jai Bellare</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Ruchir Barhate', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Industrial Engineering and Operations Research<br>Graduation Year: 2028')"
+          >
+            <img src="../images/Ruchir.JPG" alt="Ruchir Barhate" />
+            <!-- Replace with actual image -->
+            <h3>Ruchir Barhate</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Anushree khisti', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Engineering Physics<br>Graduation Year: 2028')"
+          >
+            <img src="../images/Anushree.jpg" alt="Anushree khisti" />
+            <!-- Replace with actual image -->
+            <h3>Anushree khisti</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Samiran Das', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2028')"
+          >
+            <img src="../images/Samiran.jpg" alt="Samiran Das" />
+            <!-- Replace with actual image -->
+            <h3>Samiran Das</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Aarush Gupta ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2028')"
+          >
+            <img
+              src="../images/istockphoto-1413766112-612x612.jpg"
+              alt="Aarush Gupta "
+            />
+            <!-- Replace with actual image -->
+            <h3>Aarush Gupta</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Ayushman soni ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Civil Engineering<br>Graduation Year: 2028')"
+          >
+            <img src="../images/Ayushman.jpg" alt="Ayushman soni  " />
+            <!-- Replace with actual image -->
+            <h3>Ayushman soni</h3>
+            <p>Junior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Tanya Menghani', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2028')"
+          >
+            <img
+              src="../images/istockphoto-1413766112-612x612.jpg"
+              alt="Tanya Menghani  "
+            />
+            <!-- Replace with actual image -->
+            <h3>Tanya Menghani</h3>
+            <p>Junior Engineer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-1">
+      <!-- Business Section -->
+      <div class="team-section" id="Business">
+        <h2>Business</h2>
+        <div class="team-grid">
+          <div
+            class="team-member"
+            onclick="showPopup('Dhara Rangari ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Chemical Engineering<br>Graduation Year: 2027')"
+          >
+            <img src="../images/Dhara.JPG" alt="Dhara Rangari " />
+            <!-- Replace with actual image -->
+            <h3>Dhara Rangari</h3>
+            <p>Senior Member</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Abhinav ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Chemical Engineering<br>Graduation Year: 2027')"
+          >
+            <img
+              src="../images/istockphoto-1413766112-612x612.jpg"
+              alt="Abhinav  "
+            />
+            <!-- Replace with actual image -->
+            <h3>Abhinav</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Anushka Bharti ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2027')"
+          >
+            <img src="../images/Anushka.jpg" alt="Anushka Bharti  " />
+            <!-- Replace with actual image -->
+            <h3>Anushka Bharti</h3>
+            <p>Senior Engineer</p>
+          </div>
+          <div
+            class="team-member"
+            onclick="showPopup('Riya Agrawal  ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Civil Engineering<br>Graduation Year: 2027')"
+          >
+            <img
+              src="../images/istockphoto-1413766112-612x612.jpg"
+              alt="Riya Agrawal "
+            />
+            <!-- Replace with actual image -->
+            <h3>Riya Agrawal</h3>
+            <p>Senior Engineer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popup">
+      <div class="popup-content">
+        <span class="close-btn" onclick="hidePopup()">&times;</span>
+        <img id="popup-img" src="" alt="Member Photo" />
+        <h3 id="popup-name"></h3>
+        <p id="popup-details"></p>
+        <a
+          id="popup-linkedin"
+          href="https://www.linkedin.com/company/iitbrocketteam/?originalSubdomain=in"
+          target="_blank"
+          style="
             color: #0e76a8;
             text-decoration: none;
             font-size: 16px;
             margin-top: 10px;
             display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        .popup-details a:hover {
-            color: #0056b3;
-        }
-
-        .popup-linkedin {
-            color: #0e76a8;
-            text-decoration: none;
-            font-size: 16px;
-            margin-top: 10px;
-            display: inline-flex;
-            align-items: center;
-            transition: color 0.3s ease;
-        }
-
-        .popup-linkedin:hover {
-            color: #0056b3;
-        }
-
-        .popup-linkedin img {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        /* General Footer Styling */
-        .footer {
-            background-color: #000;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            flex-wrap: wrap;
-        }
-
-        /* Logo Section */
-        .footer-logo .logo {
-            width: 200px;
-            /* Adjust size */
-            height: auto;
-        }
-
-        /* Sitemap Section */
-        .footer-sitemap {
-            text-align: left;
-        }
-
-        .footer-sitemap h3 {
-            margin-bottom: 10px;
-            font-size: 16px;
-            text-transform: uppercase;
-        }
-
-        .footer-sitemap ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-sitemap ul li {
-            margin: 5px 0;
-        }
-
-        .footer-sitemap ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .footer-sitemap ul li a:hover {
-            color: #E4405F;
-            /* Instagram color for hover effect */
-        }
-
-        /* Social Media Section */
-        .footer-social {
-            text-align: left;
-        }
-
-        .footer-social h3 {
-            margin-bottom: 10px;
-            font-size: 16px;
-            text-transform: uppercase;
-            transform: translateX(-40%);
-        }
-
-        .footer-social .social-icon {
-            color: #fff;
-            font-size: 24px;
-            text-decoration: none;
-        }
-
-        .footer-social .social-icon:hover {
-            color: #E4405F;
-        }
-
-        /* Bottom Section */
-        .footer-bottom {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #aaa;
-        }
-    </style>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-</head>
-
-<body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="images/rtlogo1.png" alt="logo">
-        </div>
-        <div class="links">
-            <a href="#home">Home</a>
-            <a href="#members">Members</a>
-            <a href="#sponsors">Sponsors</a>
-            <a href="achievements.html">Achievements</a>
-            <a href="#rockets">Rockets</a>
-
-
-        </div>
-        <div class="buttons">
-            <button class="btn btn-give">REACH OUT TO US</button>
-
-        </div>
-        <div class="buttons">
-            <div class="social">
-                <a href="https://www.instagram.com/iitb.rocket.team/?hl=en" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-            <div class="social">
-                <a href="https://in.linkedin.com/company/iitbrocketteam" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-            <div class="social">
-                <a href="mailto:iitbrocketteam@gmail.com" target="_blank" class="social-icon">
-                    <i class="fas fa-envelope icon"></i>
-                </a>
-            </div>
-        </div>
-    </nav>
-    <header class="header">
-        <h1>Our Team</h1>
-    </header>
-    <section class="content">
-        <div class="text">
-            <h2>IITB- ROCKET TEAM</h2>
-            <p>Our team is a group of 30+ members, including undergraduates, dual degree and PhD students, united by a
-                shared passion for advancing rocketry and space sciences in India. We are dedicated to nurture a robust
-                STEM community and are guided by experienced faculty from ISRO and IIT Bombay, along with a TRA Level-3
-                certified international mentor who will be our Flyer of Record for the competition.</p>
-            <p>Click on any of our members below to learn more about them!</p>
-        </div>
-        <div class="img">
-            <img src="images/Screenshot 2024-12-22 165733.png" alt="IITB ROCKET TEAM">
-            <!-- Replace with the actual image -->
-        </div>
-    </section>
-    <section class="content-1">
-        <!-- Team Leads Section -->
-        <div class="team-section" id="team-leads">
-            <h2>Team Leads</h2>
-            <div class="team-grid">
-                <div class="team-member"
-                    onclick="showPopup('Anish Dahibaokar', 'imgSrc', 'Major: Mechanical Engineering<br>Graduation Year: 2025')">
-                    <img src="../images/anishD.png" alt="Anish Dahibaokar"> <!-- Replace with actual image -->
-                    <h3>Anish Dahibaokar</h3>
-                    <p>Team Lead</p>
-
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Sayan Vishwakarma', 'images/istockphoto-1413766112-612x612.jpg', 'Major:Aerospace Engineering<br>Graduation Year: 2025')">
-                    <img src="../images/SayanV.JPG" alt="Sayan Vishwakarma"> <!-- Replace with actual image -->
-                    <h3>Sayan Vishwakarma</h3>
-                    <p>Team Lead</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-1">
-        <!-- Propulsion Section -->
-        <div class="team-section" id="Propulsion">
-            <h2>Propulsion</h2>
-            <div class="team-grid">
-                <div class="team-member"
-                    onclick="showPopup('Venu Arravinth R ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Mechanical Engineering<br>Graduation Year: 2027')">
-                    <img src="../images/VenuR.jpg" alt="Venu Arravinth R "> <!-- Replace with actual image -->
-                    <h3>Venu Arravinth R </h3>
-                    <p>Subsytem Lead</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Aditya Parsekar ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Chemical Engineering<br>Graduation Year: 2026')">
-                    <img src="../images/AdityaP.jpg" alt="Aditya Parsekar "> <!-- Replace with actual image -->
-                    <h3>Aditya Parsekar </h3>
-                    <p>Lead</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Soham Sahasrabuddhe ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Engineering Physics<br>Graduation Year: 2027')">
-                    <img src="../images/SohamSahas.jpg" alt="Soham Sahasrabuddhe "> <!-- Replace with actual image -->
-                    <h3>Soham Sahasrabuddhe </h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Arin Pendharkar ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Metallurgy and material Science<br>Graduation Year: 2027')">
-                    <img src="../images/ArinP.jpg" alt="Arin Pendharkar "> <!-- Replace with actual image -->
-                    <h3>Arin Pendharkar </h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Om Nunase ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2027')">
-                    <img src="images/istockphoto-1413766112-612x612.jpg" alt="Om Nunase ">
-                    <!-- Replace with actual image -->
-                    <h3>Om Nunase </h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Anshit Singh', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Energy Science and Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/Anshit Singh Image.jpg" alt="Anshit Singh"> <!-- Replace with actual image -->
-                    <h3>Anshit Singh</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Shrestha Khatri', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/Shreestha.jpg" alt="Shrestha Khatri"> <!-- Replace with actual image -->
-                    <h3>Shrestha Khatri</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Siddhant Patil', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Mechanical Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/SiddhantP.jpg" alt="Siddhant Patil"> <!-- Replace with actual image -->
-                    <h3>Siddhant Patil</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Aryan Shah', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Mechanical Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/AryanShah.jpg" alt="Aryan Shah"> <!-- Replace with actual image -->
-                    <h3>Aryan Shah</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Deepika Kale', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/istockphoto-1413766112-612x612.jpg" alt="Deepika Kale">
-                    <!-- Replace with actual image -->
-                    <h3>Deepika Kale</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Dev Shrivastava ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/istockphoto-1413766112-612x612.jpg" alt="Dev Shrivastava ">
-                    <!-- Replace with actual image -->
-                    <h3>Dev Shrivastava </h3>
-                    <p>Junior Engineer</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="content-1">
-        <!-- Airframe Section -->
-        <div class="team-section" id="Airframe">
-            <h2>Airframe</h2>
-            <div class="team-grid">
-                <div class="team-member"
-                    onclick="showPopup('Sarvesh Patil ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Mechanical Engineering<br>Graduation Year: 2026')">
-                    <img src="../images/Sarvesh Patil.jpg" alt="Sarvesh Patil "> <!-- Replace with actual image -->
-                    <h3>Sarvesh Patil </h3>
-                    <p>Subsytem Lead</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Hitaishi Modi ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2025')">
-                    <img src="../images/Hitashi Modi_cropped.jpg" alt="Hitaishi Modi">
-                    <!-- Replace with actual image -->
-                    <h3>Hitaishi Modi </h3>
-                    <p>Senior Member</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Kartik Daga ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2027')">
-                    <img src="../images/KartikD.jpeg" alt="Kartik Daga "> <!-- Replace with actual image -->
-                    <h3>Kartik Daga</h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Krishang Singh ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2027')">
-                    <img src="../images/KrishangS.jpg" alt="Krishang Singh "> <!-- Replace with actual image -->
-                    <h3>Krishang Singh </h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Vrushabh Patil ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2027')">
-                    <img src="../images/Vrushabh.png" alt="Vrushabh Patil "> <!-- Replace with actual image -->
-                    <h3>Vrushabh Patil </h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Aaryan Barupal ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/istockphoto-1413766112-612x612.jpg" alt="Aaryan Barupal ">
-                    <!-- Replace with actual image -->
-                    <h3>Aaryan Barupal </h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Ram Jyothy ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Civil Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/RamJyothy.jpg" alt="Ram Jyothy "> <!-- Replace with actual image -->
-                    <h3>Ram Jyothy </h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Abhinav Badegaonkar', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Chemical Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/AbhinavB.jpg" alt="Abhinav Badegaonkar"> <!-- Replace with actual image -->
-                    <h3>Abhinav Badegaonkar</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Aarav Malde', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2029')">
-                    <img src="../images/Aarav.jpg" alt="Aarav Malde"> <!-- Replace with actual image -->
-                    <h3>Aarav Malde</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Upajna Kansara', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/istockphoto-1413766112-612x612.jpg" alt="Upajna Kansara">
-                    <!-- Replace with actual image -->
-                    <h3>Upajna Kansara</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Adithya Ravi', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Engineering Physics<br>Graduation Year: 2028')">
-                    <img src="../images/AdithyaR.jpg" alt="Adithya Ravi"> <!-- Replace with actual image -->
-                    <h3>Adithya Ravi</h3>
-                    <p>Junior Engineer</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="content-1">
-        <!-- Avionics Section -->
-        <div class="team-section" id="Avionics">
-            <h2>Avionics</h2>
-            <div class="team-grid">
-                <div class="team-member"
-                    onclick="showPopup('Stuti Singla ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2026')">
-                    <img src="../images/Stuti.PNG" alt="Stuti Singla "> <!-- Replace with actual image -->
-                    <h3>Stuti Singla </h3>
-                    <p>Subsytem Lead</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Medhavin Chabra ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2026')">
-                    <img src="../images/Medhavin.jpeg" alt="Medhavin Chabra"> <!-- Replace with actual image -->
-                    <h3>Medhavin Chabra </h3>
-                    <p>Subsytem Lead</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Arnav Dhamankar ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Civil Engineering<br>Graduation Year: 2026')">
-                    <img src="../images/ArnavD.jpg" alt="Arnav Dhamankar "> <!-- Replace with actual image -->
-                    <h3>Arnav Dhamankar</h3>
-                    <p>Subsytem Lead</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Akshay Gaikwad ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Computer Science Engineering<br>Graduation Year: 2027')">
-                    <img src="../images/Akshay.jpg" alt="Akshay Gaikwad "> <!-- Replace with actual image -->
-                    <h3>Akshay Gaikwad</h3>
-                    <p>Senior Member</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Nikhil Khandelwal ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Metallurgy and Material Science<br>Graduation Year: 2027')">
-                    <img src="../images/NikhilK.jpg" alt="Nikhil Khandelwal "> <!-- Replace with actual image -->
-                    <h3>Nikhil Khandelwal </h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Hemang Dave ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/HemangD.jpg" alt="Hemang Dave "> <!-- Replace with actual image -->
-                    <h3>Hemang Dave </h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Harsh Mehta ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Metallurgy and Material Science <br>Graduation Year: 2027')">
-                    <img src="../images/HarshM.png" alt="Harsh Mehta "> <!-- Replace with actual image -->
-                    <h3>Harsh Mehta </h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Sameer Gupta', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Metallurgy and Material Science<br>Graduation Year: 2027')">
-                    <img src="../images/sameer gupta photo.jpg" alt="Sameer Gupta"> <!-- Replace with actual image -->
-                    <h3>Sameer Gupta</h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Ayusha Hongekar', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Industrial Engineering and Operations Research<br>Graduation Year: 2028')">
-                    <img src="../images/istockphoto-1413766112-612x612.jpg" alt="Ayusha Hongekar">
-                    <!-- Replace with actual image -->
-                    <h3>Ayusha Hongekar</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Jai Bellare', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/istockphoto-1413766112-612x612.jpg" alt="Jai Bellare ">
-                    <!-- Replace with actual image -->
-                    <h3>Jai Bellare </h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Ruchir Barhate', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Industrial Engineering and Operations Research<br>Graduation Year: 2028')">
-                    <img src="../images/Ruchir.JPG" alt="Ruchir Barhate"> <!-- Replace with actual image -->
-                    <h3>Ruchir Barhate</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Anushree khisti', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Engineering Physics<br>Graduation Year: 2028')">
-                    <img src="../images/Anushree.jpg" alt="Anushree khisti"> <!-- Replace with actual image -->
-                    <h3>Anushree khisti</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Samiran Das', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/Samiran.jpg" alt="Samiran Das"> <!-- Replace with actual image -->
-                    <h3>Samiran Das</h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Aarush Gupta ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Electrical Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/istockphoto-1413766112-612x612.jpg" alt="Aarush Gupta ">
-                    <!-- Replace with actual image -->
-                    <h3>Aarush Gupta </h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Ayushman soni ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Civil Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/Ayushman.jpg" alt="Ayushman soni  "> <!-- Replace with actual image -->
-                    <h3>Ayushman soni </h3>
-                    <p>Junior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Tanya Menghani', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2028')">
-                    <img src="../images/istockphoto-1413766112-612x612.jpg" alt="Tanya Menghani  ">
-                    <!-- Replace with actual image -->
-                    <h3>Tanya Menghani </h3>
-                    <p>Junior Engineer</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="content-1">
-        <!-- Business Section -->
-        <div class="team-section" id="Business">
-            <h2>Business</h2>
-            <div class="team-grid">
-                <div class="team-member"
-                    onclick="showPopup('Dhara Rangari ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Chemical Engineering<br>Graduation Year: 2027')">
-                    <img src="../images/Dhara.JPG" alt="Dhara Rangari "> <!-- Replace with actual image -->
-                    <h3>Dhara Rangari</h3>
-                    <p>Senior Member</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Abhinav ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Chemical Engineering<br>Graduation Year: 2027')">
-                    <img src="../images/istockphoto-1413766112-612x612.jpg" alt="Abhinav  ">
-                    <!-- Replace with actual image -->
-                    <h3>Abhinav </h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Anushka Bharti ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Aerospace Engineering<br>Graduation Year: 2027')">
-                    <img src="../images/Anushka.jpg" alt="Anushka Bharti  "> <!-- Replace with actual image -->
-                    <h3>Anushka Bharti </h3>
-                    <p>Senior Engineer</p>
-                </div>
-                <div class="team-member"
-                    onclick="showPopup('Riya Agrawal  ', 'images/istockphoto-1413766112-612x612.jpg', 'Major: Civil Engineering<br>Graduation Year: 2027')">
-                    <img src="../images/istockphoto-1413766112-612x612.jpg" alt="Riya Agrawal ">
-                    <!-- Replace with actual image -->
-                    <h3>Riya Agrawal </h3>
-                    <p>Senior Engineer</p>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Popup -->
-    <div class="popup-overlay" id="popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="hidePopup()">&times;</span>
-            <img id="popup-img" src="" alt="Member Photo">
-            <h3 id="popup-name"></h3>
-            <p id="popup-details"></p>
-            <a id="popup-linkedin" href="https://www.linkedin.com/company/iitbrocketteam/?originalSubdomain=in"
-                target="_blank"
-                style="color: #0e76a8; text-decoration: none; font-size: 16px; margin-top: 10px; display: inline-block;">
-                <img src="images/icons8-linkedin-logo-48.png" alt="LinkedIn"
-                    style="width: 20px; height: 20px; margin-right: 5px;">
-
-            </a>
-        </div>
+          "
+        >
+          <img
+            src="images/icons8-linkedin-logo-48.png"
+            alt="LinkedIn"
+            style="width: 20px; height: 20px; margin-right: 5px"
+          />
+        </a>
+      </div>
     </div>
 
     <script>
-        function showPopup(name, imgSrc, details) {
-            document.getElementById('popup-name').innerText = name;
-            document.getElementById('popup-img').src = imgSrc;
-            document.getElementById('popup-details').innerHTML = details;
-            document.getElementById('popup').style.display = 'flex';
-        }
+      function showPopup(name, imgSrc, details) {
+        document.getElementById("popup-name").innerText = name;
+        document.getElementById("popup-img").src = imgSrc;
+        document.getElementById("popup-details").innerHTML = details;
+        document.getElementById("popup").style.display = "flex";
+      }
 
-        const linkedinLink = document.getElementById('popup-linkedin');
-        if (linkedinUrl) {
-            linkedinLink.href = linkedinUrl;
-            linkedinLink.style.display = 'inline-block'; // Show the link
-        } else {
-            linkedinLink.style.display = 'none'; // Hide the link if no URL provided
-        }
+      const linkedinLink = document.getElementById("popup-linkedin");
+      if (linkedinUrl) {
+        linkedinLink.href = linkedinUrl;
+        linkedinLink.style.display = "inline-block"; // Show the link
+      } else {
+        linkedinLink.style.display = "none"; // Hide the link if no URL provided
+      }
 
-        function hidePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
+      function hidePopup() {
+        document.getElementById("popup").style.display = "none";
+      }
     </script>
-</body>
+  </body>
 
-<footer class="footer">
+  <footer class="footer">
     <div class="footer-container">
-        <!-- Logo Section -->
-        <div class="footer-logo">
-            <img src="images/rtlogo1.png" alt="Team Logo" class="logo">
-        </div>
+      <!-- Logo Section -->
+      <div class="footer-logo">
+        <img src="images/rtlogo1.png" alt="Team Logo" class="logo" />
+      </div>
 
-        <!-- Sitemap Section -->
-        <div class="footer-sitemap">
-            <h3>Site Map</h3>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#members">Members</a></li>
+      <!-- Sitemap Section -->
+      <div class="footer-sitemap">
+        <h3>Site Map</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#members">Members</a></li>
 
+          <li><a href="#sponsors">Sponsors</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#rockets">Rockets</a></li>
+          <li><a href="#apply">Apply</a></li>
+        </ul>
+      </div>
 
-                <li><a href="#sponsors">Sponsors</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#rockets">Rockets</a></li>
-                <li><a href="#apply">Apply</a></li>
-            </ul>
-        </div>
-
-
-        <!-- Social Media Section -->
-        <div class="footer-social">
-            <h3>Social Media</h3>
-            <a href="https://www.instagram.com/iitb.rocket.team/?hl=en" target="_blank" class="social-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://in.linkedin.com/company/iitbrocketteam" target="_blank" class="social-icon">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.facebook.com/iitbrocketteam/" target="_blank" class="social-icon">
-                <i class="fab fa-facebook"></i>
-            </a>
-        </div>
+      <!-- Social Media Section -->
+      <div class="footer-social">
+        <h3>Social Media</h3>
+        <a
+          href="https://www.instagram.com/iitb.rocket.team/?hl=en"
+          target="_blank"
+          class="social-icon"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          href="https://in.linkedin.com/company/iitbrocketteam"
+          target="_blank"
+          class="social-icon"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/iitbrocketteam/"
+          target="_blank"
+          class="social-icon"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
     </div>
 
     <!-- Footer Bottom Section -->
     <div class="footer-bottom">
-
-        <p>&copy; 2024 IITB-ROCKET Team</p>
+      <p>&copy; 2024 IITB-ROCKET Team</p>
     </div>
-</footer>
-
+  </footer>
 </html>
