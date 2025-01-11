@@ -1,1 +1,4 @@
 images/
+
+# quickly ignore something
+.ignore**
